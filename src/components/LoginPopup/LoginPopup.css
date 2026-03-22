@@ -1,0 +1,190 @@
+/* ── Overlay ── */
+.login-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 10, 8, 0.60);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: var(--space-4);
+}
+
+/* ── Modal card ── */
+.login-popup-container {
+  width: 100%;
+  max-width: 420px;
+  background: var(--surface);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  box-shadow: var(--shadow-lg);
+  animation: fadeInScale 0.35s ease forwards;
+}
+
+/* ── Title row ── */
+.login-popup-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-popup-title h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--on-surface);
+}
+
+.login-popup-title .login-close {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-low);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.login-popup-title .login-close:hover {
+  background: var(--surface-high);
+}
+
+.login-popup-title .login-close img {
+  width: 14px;
+  height: 14px;
+}
+
+/* ── Inputs ── */
+.login-popup-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.login-popup-inputs input {
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--surface-low);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--on-surface);
+  outline: none;
+  transition: all var(--transition);
+}
+
+.login-popup-inputs input::placeholder {
+  color: var(--on-surface-muted);
+}
+
+.login-popup-inputs input:focus {
+  background: var(--surface);
+  border-color: rgba(255, 99, 71, 0.45);
+  box-shadow: 0 0 0 3px rgba(255, 99, 71, 0.12);
+}
+
+/* ── Submit button ── */
+.login-popup-container .login-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--primary-gradient);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-primary);
+}
+
+.login-popup-container .login-btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(255, 99, 71, 0.45);
+}
+
+.login-popup-container .login-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Terms checkbox ── */
+.login-popup-condition {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+}
+
+.login-popup-condition input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  accent-color: var(--primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.login-popup-condition p {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--on-surface-variant);
+  line-height: 1.5;
+}
+
+/* ── Toggle link ── */
+.login-popup-toggle {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--on-surface-variant);
+  text-align: center;
+}
+
+.login-popup-toggle span {
+  color: var(--primary-dark);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  margin-left: 4px;
+}
+
+.login-popup-toggle span:hover {
+  color: var(--primary);
+}
+
+/* ── Feedback message ── */
+.login-popup-message {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.login-popup-message.success {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.login-popup-message.error {
+  background: #ffdad6;
+  color: var(--error);
+}
+
+.login-popup-message.loading {
+  background: var(--surface-low);
+  color: var(--on-surface-variant);
+}

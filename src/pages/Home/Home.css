@@ -1,0 +1,6 @@
+/* Home / landing-page wrapper */
+.home {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}

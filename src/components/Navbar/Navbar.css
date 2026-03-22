@@ -1,0 +1,205 @@
+/* ── Navbar base ── */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  background: rgba(252, 249, 248, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+.navbar--scrolled {
+  box-shadow: var(--shadow-md);
+  border-color: var(--outline-variant);
+}
+
+/* ── Logo ── */
+.navbar__logo img {
+  width: 130px;
+  height: auto;
+  display: block;
+}
+
+/* ── Desktop nav links ── */
+.navbar__links {
+  display: flex;
+  list-style: none;
+  gap: var(--space-8);
+  align-items: center;
+  margin: 0;
+}
+
+.navbar__links a {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--on-surface-variant);
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.navbar__links a:hover,
+.navbar__links a.active {
+  color: var(--primary-dark);
+  border-bottom-color: var(--primary);
+}
+
+/* ── Right side ── */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* ── Cart icon ── */
+.navbar__cart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  transition: background var(--transition);
+}
+
+.navbar__cart:hover {
+  background: var(--surface-high);
+}
+
+.navbar__cart img {
+  width: 24px;
+  height: 24px;
+}
+
+.navbar__cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  min-height: 18px;
+  font-size: 10px;
+  padding: 1px 4px;
+}
+
+/* ── User ── */
+.navbar__user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.navbar__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--primary-gradient);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.navbar__signin {
+  font-size: 0.88rem;
+  padding: 9px 22px;
+}
+
+.navbar__signout {
+  font-size: 0.85rem;
+  padding: 7px 16px;
+}
+
+/* ── Hamburger ── */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.navbar__hamburger:hover {
+  background: var(--surface-high);
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 22px;
+  height: 2.5px;
+  background: var(--on-surface);
+  border-radius: var(--radius-full);
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.navbar__hamburger.open span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+.navbar__hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.navbar__hamburger.open span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* ── Mobile drawer ── */
+.navbar__mobile-menu {
+  position: absolute;
+  top: var(--navbar-height);
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--outline-variant);
+}
+
+.navbar__mobile-menu a,
+.navbar__mobile-menu .navbar__mobile-cart {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--on-surface-variant);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--surface-high);
+  display: block;
+  transition: color var(--transition);
+}
+
+.navbar__mobile-menu a:hover,
+.navbar__mobile-menu a.active {
+  color: var(--primary);
+}
+
+.navbar__mobile-menu .btn {
+  margin-top: var(--space-3);
+  border-radius: var(--radius-md);
+}
+
+/* ── Responsive breakpoints ── */
+@media (max-width: 768px) {
+  .navbar__links { display: none; }
+  .navbar__user .navbar__signout { display: none; }
+  .navbar__hamburger { display: flex; }
+}
+
+@media (max-width: 480px) {
+  .navbar__logo img { width: 110px; }
+}

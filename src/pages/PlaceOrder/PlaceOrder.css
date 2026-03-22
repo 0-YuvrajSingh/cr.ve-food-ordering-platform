@@ -1,0 +1,187 @@
+/* ── PlaceOrder page ── */
+.place-order {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-10);
+  padding: var(--space-8) 0 var(--space-12);
+  animation: fadeIn 0.4s ease;
+}
+
+/* ── Section title ── */
+.place-order .title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--on-surface);
+  margin-bottom: var(--space-6);
+}
+
+/* ── Left: delivery form ── */
+.place-order-left {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* ── Multi-field row ── */
+.multi-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+/* ── Input styling ── */
+.place-order-left input {
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--surface-low);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--on-surface);
+  outline: none;
+  transition: all var(--transition);
+}
+
+.place-order-left input::placeholder {
+  color: var(--on-surface-muted);
+}
+
+.place-order-left input:focus {
+  background: var(--surface);
+  border-color: rgba(255, 99, 71, 0.45);
+  box-shadow: 0 0 0 3px rgba(255, 99, 71, 0.12);
+}
+
+/* ── Error messages ── */
+.field-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.place-order-left .error {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--error);
+  padding-left: var(--space-1);
+}
+
+/* ── Right: cart total ── */
+.place-order-right {
+  position: sticky;
+  top: calc(var(--navbar-height) + var(--space-6));
+  height: fit-content;
+}
+
+.place-order-right .cart-total {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Inherit .cart-total-row styles from Cart.css by re-declaring */
+.cart-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--on-surface-variant);
+}
+
+.cart-total-row.total {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  padding-top: var(--space-2);
+  border-top: 2px solid var(--surface-high);
+}
+
+.cart-total-row.total span:last-child {
+  color: var(--primary-dark);
+  font-size: 1.2rem;
+}
+
+/* ── Action buttons ── */
+.place-order-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.place-order-buttons .btn-back {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-full);
+  background: var(--surface-high);
+  color: var(--on-surface);
+  border: none;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: center;
+}
+
+.place-order-buttons .btn-back:hover {
+  background: var(--surface-highest);
+}
+
+.place-order-buttons .btn-pay {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--primary-gradient);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-primary);
+}
+
+.place-order-buttons .btn-pay:hover:not(:disabled) {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(255, 99, 71, 0.45);
+}
+
+.place-order-buttons .btn-pay:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .place-order {
+    grid-template-columns: 1fr;
+  }
+
+  .place-order-right {
+    position: static;
+    order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .multi-fields {
+    grid-template-columns: 1fr;
+  }
+}

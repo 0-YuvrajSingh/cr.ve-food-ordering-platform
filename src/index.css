@@ -1,0 +1,350 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap");
+
+/* ───────────────────────────────────────────
+   DESIGN TOKENS — Crave Minimalist System
+─────────────────────────────────────────── */
+:root {
+  /* Brand */
+  --primary: #ff6347;
+  --primary-dark: #b12c16;
+  --primary-gradient: linear-gradient(135deg, #b12c16, #ff6347);
+  --primary-glow: 0 4px 24px rgba(255, 99, 71, 0.35);
+
+  /* Surfaces */
+  --bg: #fcf9f8;
+  --surface: #ffffff;
+  --surface-low: #f6f3f2;
+  --surface-mid: #f0eded;
+  --surface-high: #eae7e7;
+  --surface-highest: #e4e2e1;
+
+  /* Text */
+  --on-surface: #1b1c1c;
+  --on-surface-variant: #5a413c;
+  --on-surface-muted: #8a7a76;
+
+  /* Outline */
+  --outline: #e2bfb8;
+  --outline-variant: rgba(226, 191, 184, 0.3);
+
+  /* Status */
+  --error: #ba1a1a;
+  --success: #1e6f38;
+  --success-bg: #d4edda;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 4px rgba(90, 65, 60, 0.06);
+  --shadow-md: 0 4px 16px rgba(90, 65, 60, 0.08);
+  --shadow-lg: 0 8px 32px rgba(90, 65, 60, 0.10);
+  --shadow-primary: 0 4px 24px rgba(255, 99, 71, 0.30);
+
+  /* Transitions */
+  --transition: 0.2s ease;
+  --transition-slow: 0.4s ease;
+
+  /* Fonts */
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Be Vietnam Pro", sans-serif;
+
+  /* Navbar */
+  --navbar-height: 72px;
+}
+
+/* ───────────────────────────────────────────
+   RESET & BASE
+─────────────────────────────────────────── */
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+/* ───────────────────────────────────────────
+   LAYOUT
+─────────────────────────────────────────── */
+.app {
+  flex: 1;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ───────────────────────────────────────────
+   TYPOGRAPHY UTILITIES
+─────────────────────────────────────────── */
+.font-display {
+  font-family: var(--font-display);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--on-surface);
+  line-height: 1.2;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: var(--on-surface);
+  margin-bottom: var(--space-3);
+}
+
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--on-surface-variant);
+  max-width: 560px;
+}
+
+/* ───────────────────────────────────────────
+   BUTTON UTILITIES
+─────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 10px 24px;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--primary-gradient);
+  color: #fff;
+  box-shadow: var(--shadow-primary);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 6px 28px rgba(255, 99, 71, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: var(--surface-high);
+  color: var(--on-surface);
+  border: 1px solid var(--outline-variant);
+}
+
+.btn-secondary:hover {
+  background: var(--surface-highest);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 99, 71, 0.06);
+}
+
+/* ───────────────────────────────────────────
+   INPUT UTILITIES
+─────────────────────────────────────────── */
+.input-field {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--surface-low);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--on-surface);
+  outline: none;
+  transition: all var(--transition);
+}
+
+.input-field::placeholder {
+  color: var(--on-surface-muted);
+}
+
+.input-field:focus {
+  background: var(--surface);
+  border-color: rgba(255, 99, 71, 0.4);
+  box-shadow: 0 0 0 3px rgba(255, 99, 71, 0.12);
+}
+
+/* ───────────────────────────────────────────
+   CARD UTILITIES
+─────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-md);
+}
+
+/* ───────────────────────────────────────────
+   BADGE UTILITY
+─────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  min-height: 20px;
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ───────────────────────────────────────────
+   ANIMATIONS
+─────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px var(--primary); }
+  to   { text-shadow: 0 0 15px var(--primary), 0 0 30px rgba(255, 99, 71, 0.5); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in { animation: fadeIn 0.5s ease forwards; }
+.animate-fade-in-scale { animation: fadeInScale 0.35s ease forwards; }
+.animate-slide-in { animation: slideInRight 0.4s ease forwards; }
+
+/* Skeleton loading shimmer */
+.skeleton {
+  background: linear-gradient(90deg, var(--surface-high) 25%, var(--surface-highest) 50%, var(--surface-high) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+/* ───────────────────────────────────────────
+   DIVIDER — tonal (no 1px lines)
+─────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: var(--surface-high);
+  border: none;
+  margin: var(--space-4) 0;
+}
+
+/* ───────────────────────────────────────────
+   SCROLLBAR
+─────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--surface-low); }
+::-webkit-scrollbar-thumb { background: var(--outline); border-radius: var(--radius-full); }
+
+/* ───────────────────────────────────────────
+   RESPONSIVE HELPERS
+─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .app {
+    padding: 0 var(--space-4);
+  }
+}
+
+/* Brand dot glow */
+.dot {
+  color: var(--primary);
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
